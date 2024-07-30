@@ -1,0 +1,625 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Deep Learning for Automatic Mixing &#8212; Deep Learning for Automatic Mixing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'landing-page';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Music Production" href="part_1/01_music-production.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Deep Learning for Automatic Mixing - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Deep Learning for Automatic Mixing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Deep Learning for Automatic Mixing 
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Audio Engineering</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="part_1/01_music-production.html">Music Production</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="part_1/02_audio-effects.html">Audio effects</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="part_1/audio-effects/01_panning.html">Panning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="part_1/audio-effects/02_equalization.html">Equalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="part_1/audio-effects/03_compression.html">Compression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="part_1/audio-effects/04_reverberation.html">Reverberation</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Automatic Mixing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="part_2/01_imp.html">Intelligent Music Production</a></li>
+<li class="toctree-l1"><a class="reference internal" href="part_2/02_problem.html">Problem Formulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="part_2/03_diffsp.html">Differentiable signal processing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="part_2/04_methods.html">Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="part_2/methods/01_mixwaveunet.html">Mix-Wave-U-Net</a></li>
+<li class="toctree-l2"><a class="reference internal" href="part_2/methods/02_dmc.html">Differentiable Mixing Console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="part_2/methods/03_diffmst.html">Differentable Mixing Style transfer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="part_2/05_loss-functions.html">Loss Functions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Implementation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="part_3/01_inference.html">Inference</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="part_3/02_datasets.html">Datasets for automix systems</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="part_3/03_models.html">Models</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="part_3/04_training.html">Training</a></li>
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="part_4/01_evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="part_4/02_listening-tests.html">Listening Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="part_4/03_evaluate.html">Evaluation</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Conclusion</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="part_5/01_future-directions.html">Future Directions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="part_5/02_conclusion.html">Conclusions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="part_5/03_references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/dl4am/tutorial" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/dl4am/tutorial/issues/new?title=Issue%20on%20page%20%2Flanding-page.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/landing-page.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Deep Learning for Automatic Mixing </h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-authors">About the authors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citing-this-book">Citing this book</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="deep-learning-for-automatic-mixing">
+<h1>Deep Learning for Automatic Mixing <img alt="Book" src="_images/logo.png" /><a class="headerlink" href="#deep-learning-for-automatic-mixing" title="Link to this heading">#</a></h1>
+<p>This is a web book written for a <a class="reference external" href="https://ismir2022.ismir.net/program/tutorials/">tutorial session</a> of <a class="reference external" href="https://ismir2022.ismir.net/index">the 23rd International Society for Music Information Retrieval Conference</a>, Dec 4-8, 2022 held at Bengaluru, India in hybrid format. The <a class="reference external" href="https://ismir.net/">ISMIR conference</a> is the world’s leading research forum on processing, searching, organising and accessing music-related data.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Mixing is a central task within audio post-production where expert knowledge is required to deliver professional quality content, encompassing both technical and creative considerations.
+Recently, deep learning approaches have been introduced that aim to address this challenge by generating a cohesive mixture of a set of recordings as would an audio engineer.
+These approaches leverage large-scale datasets and therefore have the potential to outperform traditional approaches based on expert systems, but bring their own unique set of challenges.
+In this tutorial, we begin by providing an introduction to the mixing process from the perspective of an audio engineer, along with a discussion of the tools used in the process from a signal processing perspective.
+We then discuss a series of recent deep learning approaches and relevant datasets, providing code to build, train, and evaluate these systems.
+Future directions and challenges will be discussed, including new deep learning systems, evaluation methods, and approaches to address dataset availability.
+Our goal is to provide a starting point for researchers working in MIR who have little to no experience in audio engineering so they can easily begin addressing problems in this domain.
+In addition, our tutorial may be of interest to researchers outside of MIR, but with a background in audio engineering or signal processing, who are interested in gaining exposure to current approaches in deep learning.</p>
+</section>
+<section id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Link to this heading">#</a></h2>
+<p>Music mixing is a crucial task within audio post-production where expert knowledge is required to deliver professional music content <span id="id1">[<a class="reference internal" href="part_5/03_references.html#id9" title="Brecht De Man, Joshua D Reiss, and Ryan Stables. Ten years of automatic mixing. In 3rd AES Workshop on Intelligent Music Production. September 2017.">DMRS17</a>]</span>.
+This task encompasses both technical and creative considerations in the process of combining individual sources into a mixture, often involving the use of audio processors such as equalization, dynamic range compression, panning, and reverberation <span id="id2">[<a class="reference internal" href="part_5/03_references.html#id33" title="Thomas Wilmering, David Moffat, Alessia Milo, and Mark B Sandler. A history of audio effects. Applied Sciences, 10(3):791, 2020.">WMMS20</a>]</span>. Due to this complexity, the field of intelligent music production (IMP) <span id="id3">[<a class="reference internal" href="part_5/03_references.html#id10" title="Ryan Stables, Joshua D. Reiss, and Brecht De Man. Intelligent Music Production. Focal Press, 2019.">SRDM19</a>]</span> has focused on the design of systems that automate tasks in audio engineering.
+These systems aim to lower the difficulty in creating productions by novice users, as well as expedite or extend the workflow for professionals <span id="id4">[<a class="reference internal" href="part_5/03_references.html#id11" title="David Moffat and Mark B Sandler. Approaches in intelligent music production. Arts, 8(5):14, September 2019.">MS19b</a>]</span>.</p>
+<p>In recent years, researchers have investigated automatic mixing, the task of constructing a system to automatically create a cohesive mixture from a set of recordings as would a human audio engineer <span id="id5">[<a class="reference internal" href="part_5/03_references.html#id9" title="Brecht De Man, Joshua D Reiss, and Ryan Stables. Ten years of automatic mixing. In 3rd AES Workshop on Intelligent Music Production. September 2017.">DMRS17</a>]</span>.
+Existing approaches include adaptive signal processing <span id="id6">[<a class="reference internal" href="part_5/03_references.html#id16" title="Enrique Perez-Gonzalez and Joshua Reiss. Automatic gain and fader control for live mixing. In 2009 IEEE Workshop on Applications of Signal Processing to Audio and Acoustics, 1–4. IEEE, 2009.">PGR09</a>]</span>, rule-based <span id="id7">[<a class="reference internal" href="part_5/03_references.html#id39" title="Brecht De Man and Joshua D Reiss. A knowledge-engineered autonomous mixing system. In 135th Audio Engineering Society Convention. Audio Engineering Society, 2013.">DMR13</a>]</span>, machine learning<span id="id8">[<a class="reference internal" href="part_5/03_references.html#id32" title="Dave Moffat and Mark Sandler. Machine learning multitrack gain mixing of drums. In 147th Audio Engineering Society Convention. 2019.">MS19a</a>]</span>, and most recently deep learning <span id="id9">[<a class="reference internal" href="part_5/03_references.html#id34" title="Marco A Martínez-Ramírez, Daniel Stoller, and David Moffat. A deep learning approach to intelligent drum mixing with the Wave-U-Net. Journal of the Audio Engineering Society, 2021.">MartinezRamirezSM21</a>, <a class="reference internal" href="part_5/03_references.html#id35" title="Christian J Steinmetz, Jordi Pons, Santiago Pascual, and Joan Serrà. Automatic multitrack mixing with a differentiable mixing console of neural audio effects. In ICASSP. IEEE, 2021.">SPPSerra21</a>]</span> approaches.
+While deep learning approaches that leverage large-scale datasets have the potential to outperform traditional approaches, their performance is still far from professional audio engineers motivating further investigation in the design and evaluation of these systems.</p>
+<p>While applications of deep learning in MIR have continued to broaden, applications in audio engineering still remain under-investigated leaving a number of open research questions.
+However, the growing body of research in MIR tasks such as music source separation <span id="id10">[<a class="reference internal" href="part_5/03_references.html#id47" title="Fabian-Robert Stöter, Stefan Uhlich, Antoine Liutkus, and Yuki Mitsufuji. Open-unmix-a reference implementation for music source separation. Journal of Open Source Software, 4(41):1667, 2019.">StoterULM19</a>]</span>, music generation <span id="id11">[<a class="reference internal" href="part_5/03_references.html#id48" title="Jean-Pierre Briot, Gaëtan Hadjeres, and François-David Pachet. Deep learning techniques for music generation–a survey. arXiv:1709.01620, 2017.">BHP17</a>]</span>, and music classification <span id="id12">[<a class="reference internal" href="part_5/03_references.html#id49" title="Minz Won, Andres Ferraro, Dmitry Bogdanov, and Xavier Serra. Evaluation of cnn-based automatic music tagging models. In Proc. of 17th Sound and Music Computing. 2020.">WFBS20</a>]</span> provide insights into advancing applications in audio engineering.
+Therefore, the ISMIR community stands to benefit from a tutorial that introduces the basics and intricacies of music mixing as along with the discussion on existing approaches and open challenges.
+Our hope is to raise awareness of MIR from the perspective of audio engineering and further stimulate research interest in this area within the MIR community.</p>
+</section>
+<section id="about-the-authors">
+<h2>About the authors<a class="headerlink" href="#about-the-authors" title="Link to this heading">#</a></h2>
+<a class="reference internal image-reference" href="_images/cjs.jpeg"><img alt="Christian Steinmetz" class="align-left" src="_images/cjs.jpeg" style="width: 100px;" /></a>
+<p><a class="reference external" href="https://www.christiansteinmetz.com/"><strong>Christian J. Steinmetz</strong></a> is PhD researcher working with Prof. Joshua D. Reiss within the Centre for Digital Music at Queen Mary University of London. He researches applications of machine learning in audio with a focus on differentiable signal processing. Currently, his research revolves around applications in high fidelity audio and music production, which involves enhancing audio recordings, intelligent systems for audio engineering, as well as applications that augment and extend creativity. He has worked as a Research Scientist Intern at Adobe, Facebook Reality Labs, and Dolby Labs. Christian holds a BS in Electrical Engineering and BA in Audio Technology from Clemson University, as well as an MSc in Sound and Music Computing from the Music Technology Group at Universitat Pompeu Fabra.</p>
+<a class="reference internal image-reference" href="_images/ssv.jpeg"><img alt="CSoumya Sai Vanka" class="align-left" src="_images/ssv.jpeg" style="width: 100px;" /></a>
+<p><a class="reference external" href="https://www.saisoumya.com/"><strong>Soumya Sai Vanka</strong></a> is a first year PhD researcher at the Centre for Digital Music, Queen Mary University of London. She is part of the AI and Music, Centre for Doctoral Training. Her research focus is mainly on exploring the idea of Music Mix similarity, Music Mix Style transfer, and Intelligent Multitrack Mixing using Self-Supervised, Semi-Supervised, and Unsupervised Learning architectures. She also writes music, produces and plays saxophone. Her educational background is a mixture of Masters in Physics and Courses in Music Production.</p>
+<a class="reference internal image-reference" href="_images/mamr.jpeg"><img alt="Marco Martínez" class="align-left" src="_images/mamr.jpeg" style="width: 100px;" /></a>
+<p><a class="reference external" href="https://m-marco.com/"><strong>Marco Martínez</strong></a> is music technology researcher at Sony in the Tokyo R&amp;D center, where he is part of the Creative AI Lab. His research interests lie at the intersection of machine learning, digital signal processing, and intelligent music production, with a primary focus on deep learning architectures for music processing tasks. Previously, he was an audio research intern at Adobe and received his PhD from the Centre for Digital Music at Queen Mary University of London. He has a MSc in digital signal processing from the University of Manchester, UK, and a BSc in electronic engineering from La Universidad de Los Andes, Colombia. Marco also has a background in music production and mixing engineering.</p>
+<a class="reference internal image-reference" href="_images/gb.jpeg"><img alt="Gary Bromham*" class="align-left" src="_images/gb.jpeg" style="width: 100px;" /></a>
+<p><a class="reference external" href="https://c4dm.eecs.qmul.ac.uk/"><strong>Gary Bromham</strong></a> is a part-time PhD researcher at Queen Mary University of London, researching the role that traditional studio paradigms and retro aesthetics play in intelligent music production systems (2016 -). He has several publications in this field and has contributed a chapter to the recent Routledge publication, ‘Perspectives on Music Production: Mixing Music’ (2017). He was also a research assistant on the EPSRC funded project called FAST (Fusing Audio and Semantic Technologies) where he is employed as an industry advisor (2017 - 2020). In addition to his research interests, Gary is a practising music producer, songwriter and audio engineer, with over 30 years’ experience (1989 - 2020). He has worked with artists as diverse as Bjork, Wham, Blur and U2, during a period that has witnessed several technological changes. Gary is well versed in most popular music making software and has extensive knowledge of using analog hardware, acting as a product designer and specialist for the renowned mixing desk company, Solid State Logic. He is also a frequent guest lecturer and external advisor at several universities in the UK, Norway and Sweden; speaking on songwriting, music production aesthetics and audio engineering and bringing some of his extensive knowledge and experience to both Undergraduate and Master’s degree level programs.</p>
+</section>
+<section id="citing-this-book">
+<h2>Citing this book<a class="headerlink" href="#citing-this-book" title="Link to this heading">#</a></h2>
+<p>If you use this book or any of accompanying code in your work please consider citing this book.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@book</span><span class="p">{</span><span class="n">steinmetz2022automix</span><span class="p">,</span>
+    <span class="n">Author</span> <span class="o">=</span> <span class="p">{</span><span class="n">Steinmetz</span><span class="p">,</span> <span class="n">Christian</span> <span class="n">J</span><span class="o">.</span> <span class="ow">and</span> <span class="n">Vanka</span><span class="p">,</span> <span class="n">Soumya</span> <span class="n">Sai</span> <span class="ow">and</span> <span class="n">Martínez</span> <span class="n">Ramírez</span><span class="p">,</span> <span class="n">Marco</span> <span class="n">A</span><span class="o">.</span> <span class="ow">and</span> <span class="n">Bromham</span><span class="p">,</span> <span class="n">Gary</span><span class="p">},</span>
+    <span class="n">Month</span> <span class="o">=</span> <span class="n">Dec</span><span class="o">.</span><span class="p">,</span>
+    <span class="n">Publisher</span> <span class="o">=</span> <span class="p">{</span><span class="n">ISMIR</span><span class="p">},</span>
+    <span class="n">Title</span> <span class="o">=</span> <span class="p">{</span><span class="n">Deep</span> <span class="n">Learning</span> <span class="k">for</span> <span class="n">Automatic</span> <span class="n">Mixing</span><span class="p">},</span>
+    <span class="n">Year</span> <span class="o">=</span> <span class="mi">2022</span><span class="p">,</span>
+    <span class="n">Url</span> <span class="o">=</span> <span class="p">{</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">dl4am</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">tutorial</span><span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="part_1/01_music-production.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Music Production</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-authors">About the authors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citing-this-book">Citing this book</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Christian J. Steinmetz, Soumya Sai Vanka, Marco Martínez, Gary Bromham
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
